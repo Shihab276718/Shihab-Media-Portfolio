@@ -32,9 +32,7 @@
             width: 100%;
         }
 
-        h1, h2, h3, .logo {
-            font-family: 'Poppins', sans-serif;
-        }
+        h1, h2, h3, .logo { font-family: 'Poppins', sans-serif; }
 
         .container {
             max-width: 1200px;
@@ -43,15 +41,13 @@
             position: relative;
         }
 
-        /* --- Navigation Fixed --- */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
             padding: 20px 0;
-            z-index: 9999;
+            z-index: 10000;
             transition: var(--transition);
-            background: transparent;
         }
 
         nav.scrolled {
@@ -72,7 +68,6 @@
             font-weight: 800;
             color: var(--accent);
             text-decoration: none;
-            z-index: 10001;
         }
 
         .nav-links {
@@ -89,18 +84,14 @@
             font-size: 0.9rem;
         }
 
-        .nav-links a:hover { color: var(--accent); }
-
-        /* --- Hero Section Fixed Layout --- */
         #hero {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Vertical center content */
+            justify-content: center;
             position: relative;
             overflow: hidden;
-            padding-top: 120px; /* Strong clearance for the nav */
-            padding-bottom: 60px;
+            padding-top: 120px;
         }
 
         #particle-canvas {
@@ -111,21 +102,11 @@
             height: 100%;
             z-index: 1;
             pointer-events: none;
-            opacity: 0.6;
         }
 
-        .hero-inner {
-            position: relative;
-            z-index: 10;
-            max-width: 900px;
-        }
+        .hero-inner { position: relative; z-index: 10; max-width: 900px; }
 
-        #hero h1 {
-            font-size: clamp(2.2rem, 8vw, 4.2rem);
-            margin-bottom: 20px;
-            line-height: 1.1;
-            font-weight: 800;
-        }
+        #hero h1 { font-size: clamp(2.2rem, 8vw, 4.2rem); margin-bottom: 20px; line-height: 1.1; font-weight: 800; }
 
         .typing-container {
             height: 40px;
@@ -134,8 +115,6 @@
             font-weight: 600;
             margin-bottom: 40px;
         }
-
-        .hero-btns { display: flex; gap: 15px; flex-wrap: wrap; }
 
         .btn {
             display: inline-flex;
@@ -154,7 +133,6 @@
         .btn-primary { background: var(--accent); color: white; }
         .btn-outline { background: transparent; color: white; border: 1px solid var(--accent); }
 
-        /* --- Stats Grid --- */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -167,20 +145,19 @@
         .stat-item h3 { font-size: clamp(1.8rem, 4vw, 2.5rem); color: var(--accent); margin-bottom: 5px; }
         .stat-item p { color: var(--text-dim); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* --- Animations --- */
-        section { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        section { padding: 100px 0; opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
         section.visible { opacity: 1; transform: translateY(0); }
 
-        /* --- Workflows --- */
-        .workflow-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; padding: 60px 0; }
+        .workflow-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 40px; }
         .workflow-card { background: var(--bg-card); padding: 30px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); }
+        .wf-num { color: var(--accent); font-weight: 800; margin-bottom: 10px; }
+        .wf-tools { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .tool-tag { background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; }
 
-        /* --- Mobile --- */
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            #hero { padding-top: 100px; text-align: center; }
-            .hero-btns { justify-content: center; }
+            #hero { text-align: center; }
         }
     </style>
 </head>
@@ -203,10 +180,8 @@
         <div class="container">
             <div class="hero-inner">
                 <h1>Automation Builder for <br><span style="color: var(--accent);">Real Estate Businesses</span></h1>
-                <div class="typing-container">
-                    <span id="typed-text"></span><span class="cursor">|</span>
-                </div>
-                <div class="hero-btns">
+                <div class="typing-container"><span id="typed-text"></span><span class="cursor">|</span></div>
+                <div class="hero-btns" style="display: flex; gap: 15px; flex-wrap: wrap;">
                     <a href="#workflows" class="btn btn-primary">View My Work</a>
                     <a href="#contact" class="btn btn-outline">Get In Touch</a>
                 </div>
@@ -220,14 +195,34 @@
         </div>
     </section>
 
-    <!-- Content segments omitted for brevity - Keep your existing About, Workflows, and Skills sections here -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p style="margin-top: 20px; max-width: 800px; color: var(--text-dim);">I'm Shihab Sakif, specializing in real estate automation. I build production-ready n8n workflows that handle lead scoring, AI email generation, and intelligent routing.</p>
+        </div>
+    </section>
+
+    <section id="workflows">
+        <div class="container">
+            <h2>Production Workflows</h2>
+            <div class="workflow-grid" id="workflow-container"></div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Technical Toolkit</h2>
+            <div id="skills-list" style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 30px;"></div>
+        </div>
+    </section>
 
     <section id="contact">
         <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">Let's Build Something</h2>
             <form id="n8n-form" style="max-width: 600px; margin: 0 auto; display: grid; gap: 15px;">
                 <input type="text" name="name" required placeholder="Full Name" style="padding: 15px; background: var(--bg-card); border: 1px solid #333; color: white; border-radius: 8px;">
                 <input type="email" name="email" required placeholder="Email Address" style="padding: 15px; background: var(--bg-card); border: 1px solid #333; color: white; border-radius: 8px;">
-                <textarea name="description" rows="5" required placeholder="Tell me about your project" style="padding: 15px; background: var(--bg-card); border: 1px solid #333; color: white; border-radius: 8px;"></textarea>
+                <textarea name="description" rows="5" required placeholder="Project Details" style="padding: 15px; background: var(--bg-card); border: 1px solid #333; color: white; border-radius: 8px;"></textarea>
                 <button type="submit" class="btn btn-primary">Send Message</button>
             </form>
             <div id="form-status" style="text-align: center; margin-top: 20px; display: none;"></div>
@@ -235,13 +230,40 @@
     </section>
 
     <script>
-        // --- 1. FIXED THE URL SYNTAX (Missing quotes) ---
+        // FIXED: URL now has quotes around it
         const WEBHOOK_URL = "https://shihabmedia3343.app.n8n.cloud/webhook-test/83f86529-2a14-4254-bb49-768ff7fc6550";
 
-        // Typing Effect
+        const workflows = [
+            { n: "01", name: "CRM Lead Scoring", desc: "Scores leads as Hot/Cold using JavaScript and routes to Telegram.", tools: ["n8n", "Telegram", "Sheets"] },
+            { n: "02", name: "AI Buyer Management", desc: "Automates real estate buyer follow-ups with AI reply detection.", tools: ["n8n", "Gemini", "Gmail"] }
+        ];
+
+        const skills = ["n8n", "Gemini", "ChatGPT", "Groq", "Webhooks", "JavaScript", "Google Sheets API"];
+
+        function init() {
+            // Render Workflows
+            document.getElementById('workflow-container').innerHTML = workflows.map(wf => `
+                <div class="workflow-card">
+                    <div class="wf-num">${wf.n}</div>
+                    <h3>${wf.name}</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem;">${wf.desc}</p>
+                    <div class="wf-tools">${wf.tools.map(t => `<span class="tool-tag">${t}</span>`).join('')}</div>
+                </div>
+            `).join('');
+
+            // Render Skills
+            document.getElementById('skills-list').innerHTML = skills.map(s => `
+                <span style="background: var(--bg-card); padding: 10px 20px; border-radius: 50px; border: 1px solid #333;">${s}</span>
+            `).join('');
+
+            startTyping();
+            startParticles();
+            setTimeout(startCounters, 500);
+        }
+
         function startTyping() {
             const span = document.getElementById('typed-text');
-            const words = ["Real Estate Automation", "Lead Management Systems", "AI-Powered Workflows"];
+            const words = ["Real Estate Automation", "AI-Powered Workflows", "Lead Management"];
             let i=0, j=0, isDel=false;
             function type() {
                 const cur = words[i];
@@ -253,63 +275,62 @@
             type();
         }
 
-        // Counter Logic
         function startCounters() {
             document.querySelectorAll('.counter').forEach(c => {
                 const target = +c.getAttribute('data-target');
                 let count = 0;
                 const update = () => {
                     const inc = target / 50;
-                    if(count < target) {
-                        count += inc;
-                        c.innerText = Math.ceil(count) + (target > 1 ? '+' : '');
-                        setTimeout(update, 30);
-                    } else { c.innerText = target + (target > 1 ? '+' : ''); }
+                    if(count < target) { count += inc; c.innerText = Math.ceil(count) + "+"; setTimeout(update, 30); }
+                    else { c.innerText = target + "+"; }
                 };
                 update();
             });
         }
 
-        // Form Logic
-        document.getElementById('n8n-form').onsubmit = async (e) => {
-            e.preventDefault();
-            const btn = e.target.querySelector('button');
-            const status = document.getElementById('form-status');
-            btn.innerText = "Sending...";
-            
-            try {
-                // FIXED: URL is now correctly passed as a string
-                const res = await fetch(https://shihabmedia3343.app.n8n.cloud/webhook-test/83f86529-2a14-4254-bb49-768ff7fc6550, {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
+        function startParticles() {
+            const canvas = document.getElementById('particle-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+            let p = [];
+            for(let i=0; i<50; i++) p.push({x: Math.random()*canvas.width, y: Math.random()*canvas.height, vx: Math.random()-0.5, vy: Math.random()-0.5});
+            function draw() {
+                ctx.clearRect(0,0,canvas.width, canvas.height);
+                ctx.fillStyle = "rgba(59, 130, 246, 0.2)";
+                p.forEach(part => {
+                    part.x += part.vx; part.y += part.vy;
+                    if(part.x<0 || part.x>canvas.width) part.vx *= -1;
+                    if(part.y<0 || part.y>canvas.height) part.vy *= -1;
+                    ctx.beginPath(); ctx.arc(part.x, part.y, 2, 0, Math.PI*2); ctx.fill();
                 });
-                status.innerText = "Sent! I'll get back to you soon.";
-                status.style.display = "block";
-                status.style.color = "#4ade80";
-                e.target.reset();
-            } catch(err) {
-                status.innerText = "Error. Please email shihabsakif74@gmail.com";
-                status.style.display = "block";
-                status.style.color = "#f87171";
+                requestAnimationFrame(draw);
             }
-            btn.innerText = "Send Message";
-        };
-
-        // Scroll Effects
-        window.addEventListener('scroll', () => {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-        });
+            draw();
+        }
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
         }, { threshold: 0.1 });
         document.querySelectorAll('section').forEach(s => observer.observe(s));
 
-        window.onload = () => {
-            startTyping();
-            setTimeout(startCounters, 600);
+        document.getElementById('n8n-form').onsubmit = async (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            btn.innerText = "Sending...";
+            try {
+                await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
+                });
+                document.getElementById('form-status').innerText = "Sent successfully!";
+                document.getElementById('form-status').style.display = "block";
+                e.target.reset();
+            } catch(err) { alert("Error sending message."); }
+            btn.innerText = "Send Message";
         };
+
+        window.onload = init;
     </script>
 </body>
 </html>

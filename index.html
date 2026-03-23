@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shihab Media | Real Estate Automation Builder</title>
-    <meta name="description" content="Professional n8n automation systems for real estate businesses by Shihab Sakif.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,19 +13,14 @@
         :root {
             --bg-dark: #0A0A0F;
             --bg-card: #12121A;
-            --accent: #3B82F6; /* Electric Blue */
+            --accent: #3B82F6;
             --accent-glow: rgba(59, 130, 246, 0.3);
             --text-main: #F3F4F6;
             --text-dim: #9CA3AF;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
         body {
             background-color: var(--bg-dark);
@@ -36,11 +30,8 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3, .logo {
-            font-family: 'Poppins', sans-serif;
-        }
+        h1, h2, h3, .logo { font-family: 'Poppins', sans-serif; }
 
-        /* --- BACKGROUND PARTICLES --- */
         #particle-canvas {
             position: fixed;
             top: 0;
@@ -65,43 +56,18 @@
         }
 
         nav.scrolled {
-            background: rgba(10, 10, 15, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(15px);
             padding: 1rem 10%;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent);
-            text-decoration: none;
-        }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { color: var(--text-main); text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: var(--transition); }
+        .nav-links a:hover { color: var(--accent); }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .menu-btn {
-            display: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-        }
-
-        /* --- HERO SECTION --- */
+        /* --- HERO --- */
         .hero {
             height: 100vh;
             display: flex;
@@ -112,255 +78,100 @@
             padding: 0 10%;
         }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1rem;
-            max-width: 900px;
-        }
-
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.1; margin-bottom: 1.5rem; }
+        
         .typing-container {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--accent);
             height: 2rem;
-            margin-bottom: 2.5rem;
-            font-weight: 600;
+            margin-bottom: 3rem;
+            font-weight: 500;
         }
 
-        .hero-btns {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 4rem;
-        }
+        .hero-btns { display: flex; gap: 1.5rem; margin-bottom: 5rem; }
+        
+        .btn { padding: 0.9rem 2.2rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: var(--transition); cursor: pointer; border: none; }
+        .btn-primary { background: var(--accent); color: white; }
+        .btn-primary:hover { box-shadow: 0 0 25px var(--accent-glow); transform: translateY(-3px); }
+        .btn-secondary { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: white; }
+        .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-        .btn {
-            padding: 0.8rem 2rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: white;
-            border: 1px solid var(--accent);
-        }
-
-        .btn-primary:hover {
-            box-shadow: 0 0 20px var(--accent-glow);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            border: 1px solid var(--text-dim);
-            color: var(--text-main);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
+        /* --- STATS FIX --- */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 3rem;
-            max-width: 800px;
-        }
-
-        .stat-item h3 {
-            font-size: 2rem;
-            color: var(--accent);
-        }
-
-        .stat-item p {
-            font-size: 0.8rem;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* --- SECTION COMMONS --- */
-        section {
-            padding: 100px 10% 60px;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        /* --- ABOUT SECTION --- */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
             gap: 4rem;
-            align-items: center;
+            max-width: 900px;
         }
 
-        .info-card {
-            background: var(--bg-card);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
+        .stat-item h3 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.2rem; }
+        .stat-item p { font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2px; }
 
-        .info-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            padding-bottom: 0.5rem;
-        }
+        /* --- SECTIONS --- */
+        section { padding: 120px 10% 80px; opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        section.visible { opacity: 1; transform: translateY(0); }
+        .section-title { font-size: 2.5rem; margin-bottom: 4rem; text-align: center; }
 
-        .info-label { color: var(--text-dim); }
+        /* --- ABOUT --- */
+        .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: center; }
+        .info-card { background: var(--bg-card); padding: 2.5rem; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .info-item { display: flex; justify-content: space-between; margin-bottom: 1.2rem; border-bottom: 1px solid rgba(255, 255, 255, 0.03); padding-bottom: 0.8rem; }
+        .info-label { color: var(--text-dim); font-size: 0.9rem; }
         .info-value { color: var(--accent); font-weight: 600; }
 
-        /* --- WORKFLOWS GRID --- */
-        .workflow-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
+        /* --- WORKFLOWS --- */
+        .workflow-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
         .workflow-card {
             background: var(--bg-card);
-            padding: 2rem;
-            border-radius: 12px;
+            padding: 2.2rem;
+            border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: var(--transition);
             display: flex;
             flex-direction: column;
         }
-
         .workflow-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-12px);
             border-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--accent-glow);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(59, 130, 246, 0.1);
         }
-
-        .wf-num { color: var(--text-dim); font-size: 0.8rem; margin-bottom: 0.5rem; }
-        .wf-tag { font-size: 0.7rem; background: rgba(59, 130, 246, 0.1); color: var(--accent); padding: 2px 8px; border-radius: 4px; display: inline-block; margin-bottom: 1rem; }
-        .wf-title { margin-bottom: 1rem; font-size: 1.25rem; }
-        .wf-desc { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 1.5rem; flex-grow: 1; }
-        
+        .wf-num { color: var(--text-dim); font-size: 0.8rem; margin-bottom: 0.5rem; display: block; }
+        .wf-tag { font-size: 0.7rem; background: rgba(59, 130, 246, 0.1); color: var(--accent); padding: 4px 10px; border-radius: 6px; display: inline-block; margin-bottom: 1rem; font-weight: 600; }
+        .wf-desc { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 2rem; flex-grow: 1; }
         .tool-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-        .tool-badge { font-size: 0.7rem; background: #1a1a24; padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1); }
+        .tool-badge { font-size: 0.7rem; background: #1a1a24; padding: 5px 12px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.08); }
 
-        /* --- SKILLS SECTION --- */
-        .skills-container {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            align-items: center;
-        }
+        /* --- SKILLS --- */
+        .skills-container { display: flex; flex-direction: column; gap: 1.5rem; align-items: center; }
+        .skills-row { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+        .skill-pill { padding: 0.7rem 1.8rem; background: var(--bg-card); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 50px; transition: var(--transition); }
+        .skill-pill:hover { border-color: var(--accent); color: var(--accent); transform: scale(1.05); }
 
-        .skills-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        .skill-pill {
-            padding: 0.6rem 1.5rem;
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
-            cursor: default;
-            transition: var(--transition);
-        }
-
-        .skill-pill:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
-        }
-
-        /* --- CONTACT SECTION --- */
-        .contact-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: var(--bg-card);
-            padding: 3rem;
-            border-radius: 15px;
-        }
-
-        .contact-form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
+        /* --- CONTACT --- */
+        .contact-container { max-width: 850px; margin: 0 auto; background: var(--bg-card); padding: 4rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.03); }
+        .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
         .full-width { grid-column: span 2; }
-
-        .form-group label { display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-dim); }
-        
-        input, select, textarea {
-            width: 100%;
-            padding: 0.8rem;
-            background: #1a1a24;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 6px;
-            color: white;
-            outline: none;
-            transition: var(--transition);
-        }
-
-        input:focus, textarea:focus { border-color: var(--accent); }
-
-        .msg-box {
-            margin-top: 1rem;
-            padding: 1rem;
-            border-radius: 6px;
-            display: none;
-        }
-
+        label { display: block; margin-bottom: 0.6rem; font-size: 0.85rem; color: var(--text-dim); }
+        input, select, textarea { width: 100%; padding: 1rem; background: #16161E; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; color: white; font-family: inherit; }
+        input:focus, textarea:focus { outline: none; border-color: var(--accent); background: #1a1a24; }
+        .msg-box { margin-top: 2rem; padding: 1.2rem; border-radius: 8px; display: none; text-align: center; font-weight: 500; }
         .msg-success { background: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid #10b981; }
         .msg-error { background: rgba(239, 68, 68, 0.1); color: #ef4444; border: 1px solid #ef4444; }
 
         /* --- FOOTER --- */
-        footer {
-            padding: 4rem 10%;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
+        footer { padding: 5rem 10%; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.05); color: var(--text-dim); font-size: 0.9rem; }
+        .socials { display: flex; justify-content: center; gap: 3rem; margin-bottom: 2rem; }
+        .socials a { color: var(--text-main); text-decoration: none; transition: 0.3s; }
+        .socials a:hover { color: var(--accent); }
 
-        .social-links { margin-bottom: 1.5rem; display: flex; justify-content: center; gap: 2rem; }
-        .social-links a { color: var(--text-dim); text-decoration: none; transition: var(--transition); }
-        .social-links a:hover { color: var(--accent); }
-
-        /* --- MOBILE RESPONSIVENESS --- */
-        @media (max-width: 992px) {
+        @media (max-width: 850px) {
             .workflow-grid { grid-template-columns: repeat(2, 1fr); }
-            .about-grid { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .menu-btn { display: block; }
-            .workflow-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.2rem; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-            .contact-form { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .about-grid, .contact-form { grid-template-columns: 1fr; }
             .full-width { grid-column: span 1; }
+            .hero h1 { font-size: 2.8rem; }
         }
+        @media (max-width: 550px) { .workflow-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -375,12 +186,11 @@
             <a href="#skills">Skills</a>
             <a href="#contact">Contact</a>
         </div>
-        <div class="menu-btn">☰</div>
     </nav>
 
     <section class="hero visible">
         <h1>Automation Builder for Real Estate Businesses</h1>
-        <div class="typing-container"><span id="typewriter"></span><span class="cursor">|</span></div>
+        <div class="typing-container"><span id="typewriter"></span><span style="border-right: 2px solid var(--accent); margin-left: 5px;"></span></div>
         <div class="hero-btns">
             <a href="#workflows" class="btn btn-primary">View My Work</a>
             <a href="#contact" class="btn btn-secondary">Get In Touch</a>
@@ -396,15 +206,15 @@
     <section id="about">
         <h2 class="section-title">About Me</h2>
         <div class="about-grid">
-            <div class="about-text">
+            <div>
                 <p>I'm <strong>Shihab Sakif</strong>, an automation builder from Bangladesh specializing in real estate business systems. I build production-ready n8n workflows that solve real business problems — lead scoring, drip sequences, AI email generation, and intelligent routing.</p>
                 <br>
                 <p>Every workflow I build is designed to work while the agent sleeps, turning manual chaos into structured, scalable operations.</p>
             </div>
             <div class="info-card">
-                <div class="info-item"><span class="info-label">Main Platform</span><span class="info-value">n8n</span></div>
-                <div class="info-item"><span class="info-label">AI Models</span><span class="info-value">Gemini, ChatGPT</span></div>
-                <div class="info-item"><span class="info-label">Primary Focus</span><span class="info-value">Real Estate</span></div>
+                <div class="info-item"><span class="info-label">Platform</span><span class="info-value">n8n</span></div>
+                <div class="info-item"><span class="info-label">AI Models</span><span class="info-value">Gemini, Groq</span></div>
+                <div class="info-item"><span class="info-label">Focus</span><span class="info-value">Real Estate</span></div>
                 <div class="info-item"><span class="info-label">Status</span><span class="info-value">Available</span></div>
             </div>
         </div>
@@ -412,39 +222,25 @@
 
     <section id="workflows">
         <h2 class="section-title">Production Workflows</h2>
-        <div class="workflow-grid" id="workflow-container">
-            </div>
+        <div class="workflow-grid" id="wf-grid"></div>
     </section>
 
     <section id="skills">
         <h2 class="section-title">Skills & Tech Stack</h2>
         <div class="skills-container">
-            <div class="skills-row" id="skills-p1"></div>
-            <div class="skills-row" id="skills-p2"></div>
+            <div class="skills-row" id="skills-1"></div>
+            <div class="skills-row" id="skills-2"></div>
         </div>
     </section>
 
     <section id="contact">
         <h2 class="section-title">Let's Build Something</h2>
-        <p style="text-align:center; color: var(--text-dim); margin-bottom: 2rem;">Available for real estate automation projects</p>
         <div class="contact-container">
-            <form class="contact-form" id="n8n-form">
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" name="name" required placeholder="John Doe">
-                </div>
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" name="email" required placeholder="john@example.com">
-                </div>
-                <div class="form-group full-width">
-                    <label>Company/Agency</label>
-                    <input type="text" name="company" placeholder="Real Estate Pro LLC">
-                </div>
-                <div class="form-group full-width">
-                    <label>Project Description</label>
-                    <textarea name="description" rows="4" required placeholder="Tell me about the workflow you need..."></textarea>
-                </div>
+            <form class="contact-form" id="contact-form">
+                <div class="form-group"><label>Full Name</label><input type="text" name="name" required placeholder="Shihab Sakif"></div>
+                <div class="form-group"><label>Email</label><input type="email" name="email" required placeholder="shihab@example.com"></div>
+                <div class="form-group full-width"><label>Company/Agency</label><input type="text" name="company" placeholder="Your Agency Name"></div>
+                <div class="form-group full-width"><label>Project Description</label><textarea name="desc" rows="4" required placeholder="Describe your automation needs..."></textarea></div>
                 <div class="form-group full-width">
                     <label>Budget Range</label>
                     <select name="budget">
@@ -461,235 +257,138 @@
     </section>
 
     <footer>
-        <div class="social-links">
-            <a href="#">LinkedIn</a>
-            <a href="#">GitHub</a>
-        </div>
+        <div class="socials"><a href="#">LinkedIn</a><a href="#">GitHub</a></div>
         <p>© 2026 Shihab Media. Built with n8n.</p>
     </footer>
 
     <script>
-        /**
-         * CONFIGURATION
-         */
-        // PASTE YOUR N8N WEBHOOK URL HERE
-        const WEBHOOK_URL = "YOUR_WEBHOOK_URL_HERE";
+        const WEBHOOK_URL = "https://shihabmedia3343.app.n8n.cloud/webhook-test/f54d2c00-7af3-436b-94e9-d9cff889b0f2";
 
-        const workflowData = [
-            { num: "01", name: "CRM Lead Scoring", industry: "General Business", trigger: "Form", tools: ["n8n", "Gmail", "Telegram", "Sheets"], desc: "Scores leads as Hot, Warm, or Cold using JavaScript. Routes each tier to personalized Gmail emails and Telegram notifications." },
-            { num: "02", name: "Data Cleaner", industry: "General Business", trigger: "Manual", tools: ["n8n", "Google Sheets"], desc: "Processes messy Google Sheets data — removes duplicates, fixes formatting, and outputs a clean structured sheet." },
-            { num: "03", name: "Invoice Generator", industry: "General Business", trigger: "Form", tools: ["n8n", "Gmail", "Sheets"], desc: "Generates HTML invoices from form submissions and delivers them instantly via Gmail with Google Sheets logging." },
-            { num: "04", name: "Restaurant Booking System", industry: "Hospitality", trigger: "Form", tools: ["n8n", "Gemini", "Gmail", "Telegram"], desc: "Scores bookings by guest count, routes VIP/Standard to different paths, sends AI-written confirmations." },
-            { num: "05", name: "Video Editor Email Automation", industry: "Creative Agency", trigger: "Gmail", tools: ["n8n", "Gemini", "Gmail", "Telegram"], desc: "Reads client inquiry emails, extracts details using AI, logs to Sheets, and replies automatically." },
-            { num: "06", name: "Real Estate Buyer Management", industry: "Real Estate", trigger: "Form", tools: ["n8n", "Gemini", "Gmail", "Telegram"], desc: "Scores buyer leads, routes to different drip sequences with reply detection that stops follow-ups automatically." },
-            { num: "07", name: "Real Estate Seller Management", industry: "Real Estate", trigger: "Form", tools: ["n8n", "Gemini", "Gmail", "Telegram"], desc: "Scores seller leads across 4 variables. Three-tier routing with tone-adjusted AI emails per path." },
-            { num: "08", name: "YouTube Content Repurposing", industry: "Content Creation", trigger: "RSS Feed", tools: ["n8n", "Gemini", "ChatGPT", "LinkedIn"], desc: "Detects new videos, generates LinkedIn captions, newsletter emails, and Telegram summaries automatically." },
-            { num: "09", name: "E-Commerce Order Follow-Up", industry: "E-Commerce", trigger: "Webhook", tools: ["n8n", "Gemini", "Gmail", "Sheets"], desc: "Sends AI-written thank you emails, waits 7 days, checks for replies, and sends review requests." }
+        const workflows = [
+            { id: "01", name: "CRM Lead Scoring", tag: "Real Estate", trig: "Form", tools: ["n8n", "Gmail", "Sheets"], desc: "Scores leads as Hot/Warm/Cold and routes them to personalized drip sequences." },
+            { id: "02", name: "Data Cleaner", tag: "General", trig: "Manual", tools: ["n8n", "Google Sheets"], desc: "Fixes formatting and removes duplicates from messy property lists automatically." },
+            { id: "03", name: "Invoice Generator", tag: "Business", trig: "Form", tools: ["n8n", "Gmail", "Sheets"], desc: "Instantly creates HTML invoices and emails them to clients upon form submission." },
+            { id: "04", name: "Restaurant AI Booking", tag: "Hospitality", trig: "Form", tools: ["n8n", "Gemini", "Gmail"], desc: "AI-powered booking system that qualifies guests and handles confirmations." },
+            { id: "05", name: "AI Email Agent", tag: "Creative", trig: "Gmail", tools: ["n8n", "Gemini", "Sheets"], desc: "Extracts project details from emails and drafts professional replies using AI." },
+            { id: "06", name: "Buyer Lead Management", tag: "Real Estate", trig: "Form", tools: ["n8n", "Gemini", "Telegram"], desc: "Advanced buyer qualification with auto-reply detection to stop follow-ups." },
+            { id: "07", name: "Seller Lead Management", tag: "Real Estate", trig: "Form", tools: ["n8n", "Gemini", "Gmail"], desc: "Qualifies sellers based on motivation and timeline using tone-adjusted AI." },
+            { id: "08", name: "YouTube Content Bot", tag: "Content", trig: "RSS", tools: ["Gemini", "LinkedIn", "n8n"], desc: "Turns videos into LinkedIn posts and newsletters instantly upon upload." },
+            { id: "09", name: "E-Comm AI Follow-Up", tag: "E-Commerce", trig: "Webhook", tools: ["n8n", "Gemini", "Gmail"], desc: "Checks order status and sends personalized review requests after 7 days." }
         ];
 
-        const skillsP1 = ["n8n", "Google Gemini", "ChatGPT", "Groq", "ElevenLabs", "Slack", "Telegram"];
-        const skillsP2 = ["Gmail", "Google Sheets", "Google Drive", "LinkedIn API", "GitHub Pages", "Webhooks", "RSS Feed", "HTTP Request"];
+        const s1 = ["n8n", "Google Gemini", "ChatGPT", "Groq", "ElevenLabs", "Slack", "Telegram"];
+        const s2 = ["Gmail", "Google Sheets", "Google Drive", "LinkedIn API", "GitHub Pages", "Webhooks", "RSS Feed", "HTTP Request"];
 
-        /**
-         * DOM POPULATION
-         */
-        function init() {
-            const container = document.getElementById('workflow-container');
-            workflowData.forEach(wf => {
-                container.innerHTML += `
-                    <div class="workflow-card">
-                        <span class="wf-num">Workflow #${wf.num}</span>
-                        <div class="wf-tag">${wf.industry} | ${wf.trigger}</div>
-                        <h3 class="wf-title">${wf.name}</h3>
-                        <p class="wf-desc">${wf.desc}</p>
-                        <div class="tool-badges">
-                            ${wf.tools.map(t => `<span class="tool-badge">${t}</span>`).join('')}
-                        </div>
-                    </div>
-                `;
-            });
+        // Init Sections
+        const wfGrid = document.getElementById('wf-grid');
+        workflows.forEach(w => {
+            wfGrid.innerHTML += `
+                <div class="workflow-card">
+                    <span class="wf-num">#${w.id}</span>
+                    <span class="wf-tag">${w.tag} | ${w.trig}</span>
+                    <h3 style="margin-bottom:0.5rem">${w.name}</h3>
+                    <p class="wf-desc">${w.desc}</p>
+                    <div class="tool-badges">${w.tools.map(t => `<span class="tool-badge">${t}</span>`).join('')}</div>
+                </div>`;
+        });
+        s1.forEach(s => document.getElementById('skills-1').innerHTML += `<div class="skill-pill">${s}</div>`);
+        s2.forEach(s => document.getElementById('skills-2').innerHTML += `<div class="skill-pill">${s}</div>`);
 
-            const s1 = document.getElementById('skills-p1');
-            const s2 = document.getElementById('skills-p2');
-            skillsP1.forEach(s => s1.innerHTML += `<div class="skill-pill">${s}</div>`);
-            skillsP2.forEach(s => s2.innerHTML += `<div class="skill-pill">${s}</div>`);
+        // Typing Animation
+        const phrases = ["Real Estate Automation", "Lead Management Systems", "AI-Powered Workflows"];
+        let i = 0, j = 0, current = "", deleting = false;
+        function type() {
+            const speed = deleting ? 50 : 100;
+            const full = phrases[i];
+            current = deleting ? full.substring(0, j--) : full.substring(0, j++);
+            document.getElementById('typewriter').textContent = current;
+            if (!deleting && j === full.length + 1) { deleting = true; setTimeout(type, 1500); }
+            else if (deleting && j === 0) { deleting = false; i = (i + 1) % phrases.length; setTimeout(type, 500); }
+            else { setTimeout(type, speed); }
         }
+        type();
 
-        /**
-         * ANIMATIONS: PARTICLE BACKGROUND
-         */
+        // Particle Background
         const canvas = document.getElementById('particle-canvas');
         const ctx = canvas.getContext('2d');
-        let particles = [];
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 0.5;
-                this.speedX = Math.random() * 0.5 - 0.25;
-                this.speedY = Math.random() * 0.5 - 0.25;
-                this.opacity = Math.random() * 0.5;
-            }
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                if (this.x > canvas.width) this.x = 0;
-                if (this.x < 0) this.x = canvas.width;
-                if (this.y > canvas.height) this.y = 0;
-                if (this.y < 0) this.y = canvas.height;
-            }
-            draw() {
-                ctx.fillStyle = `rgba(59, 130, 246, ${this.opacity})`;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        function initParticles() {
-            particles = [];
-            for (let i = 0; i < 80; i++) particles.push(new Particle());
-        }
-
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => {
-                p.update();
-                p.draw();
+        let pts = [];
+        function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        window.onresize = resize; resize();
+        for(let a=0; a<80; a++) pts.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, vx:Math.random()-0.5, vy:Math.random()-0.5});
+        function draw() {
+            ctx.clearRect(0,0,canvas.width,canvas.height); ctx.fillStyle = "rgba(59,130,246,0.3)";
+            pts.forEach(p => {
+                p.x += p.vx; p.y += p.vy;
+                if(p.x<0||p.x>canvas.width) p.vx*=-1; if(p.y<0||p.y>canvas.height) p.vy*=-1;
+                ctx.beginPath(); ctx.arc(p.x,p.y,1.5,0,Math.PI*2); ctx.fill();
             });
-            requestAnimationFrame(animateParticles);
+            requestAnimationFrame(draw);
         }
+        draw();
 
-        /**
-         * ANIMATIONS: TYPEWRITER
-         */
-        const phrases = ["Real Estate Automation", "Lead Management Systems", "AI-Powered Workflows"];
-        let phraseIdx = 0;
-        let charIdx = 0;
-        let isDeleting = false;
-        const typeTarget = document.getElementById('typewriter');
-
-        function type() {
-            const current = phrases[phraseIdx];
-            if (isDeleting) {
-                typeTarget.textContent = current.substring(0, charIdx - 1);
-                charIdx--;
-            } else {
-                typeTarget.textContent = current.substring(0, charIdx + 1);
-                charIdx++;
-            }
-
-            let typeSpeed = isDeleting ? 50 : 100;
-
-            if (!isDeleting && charIdx === current.length) {
-                typeSpeed = 2000;
-                isDeleting = true;
-            } else if (isDeleting && charIdx === 0) {
-                isDeleting = false;
-                phraseIdx = (phraseIdx + 1) % phrases.length;
-                typeSpeed = 500;
-            }
-
-            setTimeout(type, typeSpeed);
-        }
-
-        /**
-         * SCROLL TRIGGERS & NAV
-         */
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
-
-            // Fade in sections
-            document.querySelectorAll('section').forEach(sec => {
-                const top = sec.getBoundingClientRect().top;
-                if (top < window.innerHeight * 0.8) {
-                    sec.classList.add('visible');
-                    // Trigger counters if visible
-                    const counters = sec.querySelectorAll('.counter');
-                    counters.forEach(c => animateCounter(c));
-                }
-            });
-        });
-
+        // Fixed Counter Logic
+        const counterHasRun = new Set();
         function animateCounter(el) {
-            if (el.classList.contains('counted')) return;
+            if (counterHasRun.has(el)) return;
+            counterHasRun.add(el);
             const target = +el.getAttribute('data-target');
-            let current = 0;
-            const inc = target / 50;
-            const timer = setInterval(() => {
-                current += inc;
-                if (current >= target) {
-                    el.textContent = target + (target === 13 || target === 60 ? '+' : '');
-                    el.classList.add('counted');
-                    clearInterval(timer);
-                } else {
-                    el.textContent = Math.ceil(current);
-                }
-            }, 30);
+            let count = 0;
+            const duration = 2000; 
+            const startTime = performance.now();
+
+            function update(now) {
+                const progress = Math.min((now - startTime) / duration, 1);
+                el.textContent = Math.floor(progress * target) + (target > 5 ? "+" : "");
+                if (progress < 1) requestAnimationFrame(update);
+                else el.textContent = target + (target > 5 ? "+" : "");
+            }
+            requestAnimationFrame(update);
         }
 
-        /**
-         * FORM SUBMISSION
-         */
-        const contactForm = document.getElementById('n8n-form');
-        const formMsg = document.getElementById('form-msg');
+        // Scroll Observer
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    e.target.querySelectorAll('.counter').forEach(animateCounter);
+                }
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('section').forEach(s => obs.observe(s));
 
-        contactForm.addEventListener('submit', async (e) => {
+        window.onscroll = () => {
+            const n = document.getElementById('navbar');
+            if(window.scrollY > 50) n.classList.add('scrolled'); else n.classList.remove('scrolled');
+        };
+
+        // Webhook Fix
+        document.getElementById('contact-form').onsubmit = async (e) => {
             e.preventDefault();
             const btn = document.getElementById('submit-btn');
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData.entries());
-
-            btn.disabled = true;
-            btn.textContent = "Sending...";
-
+            const msg = document.getElementById('form-msg');
+            btn.disabled = true; btn.textContent = "Sending...";
+            
+            const data = Object.fromEntries(new FormData(e.target).entries());
+            
             try {
-                // Check if webhook is set
-                if(WEBHOOK_URL === "https://shihabmedia3343.app.n8n.cloud/webhook-test/83f86529-2a14-4254-bb49-768ff7fc6550") {
-                    throw new Error("Webhook not configured");
-                }
-
-                const response = await fetch(WEBHOOK_URL, {
+                // Using mode: 'no-cors' to bypass strict server headers if n8n isn't configured for CORS
+                await fetch(WEBHOOK_URL, {
                     method: 'POST',
+                    mode: 'no-cors', 
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 });
-
-                if (response.ok) {
-                    formMsg.className = "msg-box msg-success";
-                    formMsg.textContent = "Message received. I'll be in touch within 24 hours.";
-                    contactForm.reset();
-                } else {
-                    throw new Error();
-                }
+                // Since 'no-cors' doesn't return response status, we assume success if no error thrown
+                msg.className = "msg-box msg-success";
+                msg.textContent = "Message received. I'll be in touch within 24 hours.";
+                e.target.reset();
             } catch (err) {
-                formMsg.className = "msg-box msg-error";
-                formMsg.textContent = "Something went wrong. Please email me directly at shihabsakif74@gmail.com";
+                msg.className = "msg-box msg-error";
+                msg.textContent = "Something went wrong. Email me: shihabsakif74@gmail.com";
             } finally {
-                formMsg.style.display = "block";
-                btn.disabled = false;
-                btn.textContent = "Send Message";
+                msg.style.display = "block"; btn.disabled = false; btn.textContent = "Send Message";
             }
-        });
-
-        // Initialize everything
-        window.addEventListener('load', () => {
-            init();
-            resizeCanvas();
-            initParticles();
-            animateParticles();
-            type();
-        });
-
-        window.addEventListener('resize', resizeCanvas);
+        };
     </script>
 </body>
 </html>
